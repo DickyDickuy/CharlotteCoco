@@ -1,0 +1,250 @@
+/* Custom CSS for enhanced styling */
+
+/* Hero Section Background */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmEyYTJhIi8+CjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjMiIGZpbGw9IiM0YTRhNGEiLz4KPGNpcmNsZSBjeD0iODAiIGN5PSI4MCIgcj0iMiIgZmlsbD0iIzNhM2EzYSIvPgo8Y2lyY2xlIGN4PSI2MCIgY3k9IjMwIiByPSIyLjUiIGZpbGw9IiM1YTVhNWEiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSI3MCIgcj0iNCIgZmlsbD0iIzNhM2EzYSIvPgo8L3N2Zz4K');
+    background-size: 200px 200px;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Product showcase enhancements */
+.coal-product-showcase {
+    position: relative;
+    overflow: hidden;
+}
+
+.coal-product-showcase::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.coal-piece {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.coal-piece::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 30%;
+    height: 30%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    filter: blur(4px);
+}
+
+/* Product image enhancements */
+.product-image {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+.coal-samples > div {
+    transition: transform 0.3s ease;
+}
+
+.coal-samples:hover > div {
+    transform: scale(1.1);
+}
+
+/* Section transitions */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Navigation enhancements */
+nav {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Coal texture pattern */
+.coal-texture {
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0,0,0,0.8) 2px, transparent 2px),
+        radial-gradient(circle at 80% 50%, rgba(0,0,0,0.6) 1px, transparent 1px),
+        radial-gradient(circle at 40% 20%, rgba(0,0,0,0.7) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 60% 80%, rgba(0,0,0,0.5) 1px, transparent 1px);
+    background-size: 30px 30px, 25px 25px, 35px 35px, 20px 20px;
+}
+
+/* Parallax effect for hero */
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Loading animation for images */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: pulse 2s infinite;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+    }
+    
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    
+    .coal-samples {
+        transform: scale(0.8);
+    }
+}
+
+/* Dark theme variations */
+@media (prefers-color-scheme: dark) {
+    .bg-gray-50 {
+        background-color: #1a1a1a;
+    }
+    
+    .text-gray-800 {
+        color: #e5e5e5;
+    }
+    
+    .text-gray-600 {
+        color: #a1a1a1;
+    }
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+/* Focus states for keyboard navigation */
+a:focus,
+button:focus {
+    outline: 2px solid #dc2626;
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #dc2626;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b91c1c;
+}
+
+/* Print styles */
+@media print {
+    .hero-section {
+        background: none;
+        color: black;
+    }
+    
+    .bg-red-600 {
+        background: white !important;
+        color: black !important;
+        border: 1px solid black;
+    }
+    
+    nav, footer {
+        display: none;
+    }
+}
