@@ -33,27 +33,7 @@
     height: 100%;
 }
 
-/* Drag & drop */
-.droppable-image {
-    outline: 2px dashed transparent;
-    outline-offset: -6px;
-    transition: outline-color 0.2s ease, background 0.2s ease;
-}
-.droppable-image.dragover {
-    outline-color: #dc2626;
-    background: #fff5f5;
-}
-.drop-hint {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 12px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    pointer-events: none;
-}
+/* Drag & drop styles removed per requirement (no public DnD) */
 
 /* Smooth scrolling */
 html {
