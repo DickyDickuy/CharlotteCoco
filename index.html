@@ -10,7 +10,7 @@
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+    <header class="bg-white shadow-md fixed w-full top-0 z-50 transition-transform duration-300">
         <nav class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
                 <div class="logo">
@@ -18,11 +18,12 @@
                 </div>
                 <ul class="hidden md:flex space-x-8">
                     <li><a href="#home" class="text-gray-700 hover:text-red-600 transition duration-300">Home</a></li>
-                    <li><a href="#about" class="text-gray-700 hover:text-red-600 transition duration-300">About</a></li>
                     <li><a href="#products" class="text-gray-700 hover:text-red-600 transition duration-300">Products</a></li>
+                    <li><a href="#why" class="text-gray-700 hover:text-red-600 transition duration-300">Why Us</a></li>
+                    <li><a href="#gallery" class="text-gray-700 hover:text-red-600 transition duration-300">Gallery</a></li>
                     <li><a href="#contact" class="text-gray-700 hover:text-red-600 transition duration-300">Contact</a></li>
                 </ul>
-                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn" aria-label="Toggle menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
@@ -30,44 +31,69 @@
             <div class="md:hidden hidden" id="mobile-menu">
                 <ul class="pt-4 space-y-2">
                     <li><a href="#home" class="block text-gray-700 hover:text-red-600 py-2">Home</a></li>
-                    <li><a href="#about" class="block text-gray-700 hover:text-red-600 py-2">About</a></li>
                     <li><a href="#products" class="block text-gray-700 hover:text-red-600 py-2">Products</a></li>
+                    <li><a href="#why" class="block text-gray-700 hover:text-red-600 py-2">Why Us</a></li>
+                    <li><a href="#gallery" class="block text-gray-700 hover:text-red-600 py-2">Gallery</a></li>
                     <li><a href="#contact" class="block text-gray-700 hover:text-red-600 py-2">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section relative h-screen flex items-center justify-center text-white">
-        <div class="absolute inset-0 bg-black opacity-40"></div>
-        <div class="relative z-10 text-center px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-4">Premium Coal</h1>
-            <p class="text-xl md:text-2xl mb-8">High Quality Charcoal Products</p>
-            <a href="#products" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition duration-300">
-                Explore Products
-            </a>
+    <!-- Hero Section (two-column image + note) -->
+    <section id="home" class="pt-24 pb-10 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-6 items-stretch">
+                <!-- Left hero image -->
+                <div class="md:col-span-2">
+                    <div class="image-frame ratio-16x9 droppable-image" data-drop-id="hero-main" aria-label="Hero main image (drop to replace)">
+                        <div class="ratio-content bg-[url('https://images.unsplash.com/photo-1600508774634-4df9d0cd19a9?q=80&w=1887&auto=format&fit=crop')] bg-cover bg-center"></div>
+                        <div class="drop-hint">Drop image here</div>
+                    </div>
+                </div>
+                <!-- Right sticky note image -->
+                <div class="flex md:block">
+                    <div class="image-frame ratio-3x4 droppable-image w-full" data-drop-id="hero-note" aria-label="Hero side image (drop to replace)">
+                        <div class="ratio-content flex items-center justify-center bg-white border border-dashed border-gray-300">
+                            <div class="text-center p-6">
+                                <p class="uppercase tracking-widest text-xs text-gray-400">UI Helper</p>
+                                <h2 class="text-2xl font-bold text-gray-900">Easy to Customize</h2>
+                                <p class="mt-2 text-gray-500 text-sm">Drag & drop your image</p>
+                            </div>
+                        </div>
+                        <div class="drop-hint">Drop image here</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <!-- Offer / About Section -->
+    <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-6">We are in international charcoal business</h2>
-                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                        With years of experience in the charcoal industry, we provide premium quality products that meet international standards. Our commitment to excellence and sustainable practices makes us a trusted partner worldwide.
-                    </p>
-                    <a href="#contact" class="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition duration-300">
-                        Contact Us
-                    </a>
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6">
+                    <p class="uppercase text-xs tracking-widest text-red-600 font-semibold">Our Offer</p>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">We offer the best supply of charcoal briquettes</h2>
+                    <p class="text-gray-600 text-lg">We provide consistent quality for shisha, BBQ and industrial needs. Flexible packaging and branding options. Global export with reliable logistics.</p>
+                    <div class="flex gap-3">
+                        <a href="#contact" class="bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-md font-semibold">Get Quote</a>
+                        <a href="#specs" class="border border-gray-300 text-gray-700 px-5 py-3 rounded-md hover:bg-gray-50">See Specs</a>
+                    </div>
                 </div>
-                <div class="relative">
-                    <div class="coal-product-showcase bg-gradient-to-br from-gray-800 to-black p-8 rounded-lg shadow-2xl">
-                        <div class="coal-pieces">
-                            <div class="coal-piece w-16 h-16 bg-gray-900 rounded-lg mb-4"></div>
-                            <div class="coal-piece w-12 h-12 bg-gray-800 rounded-lg ml-8"></div>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="offer-box">
+                        <img class="ratio-content object-cover" alt="Product box" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1760&auto=format&fit=crop" />
+                        <div class="drop-hint">Drop image here</div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="offer-coal-1">
+                            <img class="ratio-content object-cover" alt="Coal sample" src="https://images.unsplash.com/photo-1615876234889-bb5ddf0d3cbb?q=80&w=1770&auto=format&fit=crop" />
+                            <div class="drop-hint">Drop image here</div>
+                        </div>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="offer-coal-2">
+                            <img class="ratio-content object-cover" alt="Coal sample" src="https://images.unsplash.com/photo-1601924582975-7aa6021cd617?q=80&w=1740&auto=format&fit=crop" />
+                            <div class="drop-hint">Drop image here</div>
                         </div>
                     </div>
                 </div>
@@ -75,172 +101,262 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="py-20 bg-gray-100">
+    <!-- Discover + Product Sections -->
+    <section id="products" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Discover Our Products</h2>
+            <div class="text-center mb-10">
+                <p class="uppercase text-xs tracking-widest text-red-600 font-semibold">Products</p>
+                <h2 class="text-4xl font-bold text-gray-800 mb-2">Discover Our Product</h2>
                 <div class="w-24 h-1 bg-red-600 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <!-- Product Icons -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-black rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-fire text-white text-2xl"></i>
+            <!-- Category Tiles -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+                <div class="bg-white rounded-lg shadow">
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="cat-shisha">
+                        <div class="ratio-content bg-gray-200"></div>
+                        <div class="drop-hint">Drop shisha image</div>
                     </div>
-                    <h3 class="font-semibold text-gray-800">Premium Quality</h3>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold">Shisha Charcoal</h3>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-black rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-leaf text-white text-2xl"></i>
+                <div class="bg-white rounded-lg shadow">
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="cat-bbq">
+                        <div class="ratio-content bg-gray-200"></div>
+                        <div class="drop-hint">Drop BBQ image</div>
                     </div>
-                    <h3 class="font-semibold text-gray-800">Eco-Friendly</h3>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold">BBQ Charcoal</h3>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-black rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-shipping-fast text-white text-2xl"></i>
+                <div class="bg-white rounded-lg shadow">
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="cat-sawdust">
+                        <div class="ratio-content bg-gray-200"></div>
+                        <div class="drop-hint">Drop sawdust image</div>
                     </div>
-                    <h3 class="font-semibold text-gray-800">Fast Delivery</h3>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold">Sawdust Charcoal</h3>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-black rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-globe text-white text-2xl"></i>
+                <div class="bg-white rounded-lg shadow">
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="cat-hardwood">
+                        <div class="ratio-content bg-gray-200"></div>
+                        <div class="drop-hint">Drop hardwood image</div>
                     </div>
-                    <h3 class="font-semibold text-gray-800">Global Export</h3>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold">Hardwood Charcoal</h3>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow">
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="cat-binchotan">
+                        <div class="ratio-content bg-gray-200"></div>
+                        <div class="drop-hint">Drop binchotan image</div>
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-semibold">Binchotan Charcoal</h3>
+                    </div>
                 </div>
             </div>
 
-            <!-- Product Categories -->
+            <!-- Product rows -->
             <div class="space-y-16">
-                <!-- Coconut Charcoal -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="order-2 md:order-1">
                         <h3 class="text-3xl font-bold text-gray-800 mb-4">Coconut Charcoal</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            High-quality coconut shell charcoal with excellent burning properties. Perfect for shisha, BBQ, and industrial applications. Made from sustainable coconut shells.
-                        </p>
-                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">
-                            Learn More
-                        </a>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">High-quality coconut shell charcoal with excellent burning properties. Perfect for shisha, BBQ, and industrial applications. Made from sustainable coconut shells.</p>
+                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">Learn More</a>
                     </div>
                     <div class="order-1 md:order-2">
-                        <div class="product-image bg-gradient-to-br from-amber-100 to-orange-200 p-8 rounded-lg">
-                            <div class="coal-samples">
-                                <div class="w-24 h-24 bg-gray-900 rounded-full mb-4 mx-auto shadow-lg"></div>
-                                <div class="flex justify-center space-x-4">
-                                    <div class="w-16 h-16 bg-gray-800 rounded-full shadow-md"></div>
-                                    <div class="w-16 h-16 bg-gray-800 rounded-full shadow-md"></div>
-                                </div>
-                            </div>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="prod-coconut">
+                            <div class="ratio-content bg-amber-100"></div>
+                            <div class="drop-hint">Drop coconut product image</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Hardwood Charcoal -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="product-image bg-gradient-to-br from-gray-200 to-gray-300 p-8 rounded-lg">
-                            <div class="coal-samples">
-                                <div class="w-32 h-20 bg-gray-900 rounded-lg mb-4 mx-auto shadow-lg"></div>
-                                <div class="flex justify-center space-x-4">
-                                    <div class="w-20 h-16 bg-gray-800 rounded-lg shadow-md"></div>
-                                    <div class="w-20 h-16 bg-gray-800 rounded-lg shadow-md"></div>
-                                </div>
-                            </div>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="prod-hardwood">
+                            <div class="ratio-content bg-gray-200"></div>
+                            <div class="drop-hint">Drop hardwood product image</div>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-3xl font-bold text-gray-800 mb-4">Hardwood Charcoal</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            Premium hardwood charcoal with long burning time and high heat output. Ideal for restaurants, BBQ enthusiasts, and commercial use.
-                        </p>
-                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">
-                            Learn More
-                        </a>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">Dense hardwood-based charcoal with long burn time and minimal smoke, ideal for grilling and industrial heat sources.</p>
+                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">Learn More</a>
                     </div>
                 </div>
 
-                <!-- Sawdust Charcoal -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="order-2 md:order-1">
                         <h3 class="text-3xl font-bold text-gray-800 mb-4">Sawdust Charcoal</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            Compressed sawdust charcoal briquettes with consistent quality and uniform burning. Perfect for household and commercial cooking.
-                        </p>
-                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">
-                            Learn More
-                        </a>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">Consistent briquettes produced from pressed sawdust, providing uniform heat and clean burning performance.</p>
+                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">Learn More</a>
                     </div>
                     <div class="order-1 md:order-2">
-                        <div class="product-image bg-gradient-to-br from-green-100 to-emerald-200 p-8 rounded-lg">
-                            <div class="coal-samples">
-                                <div class="w-28 h-12 bg-gray-900 rounded-lg mb-4 mx-auto shadow-lg"></div>
-                                <div class="flex justify-center space-x-3">
-                                    <div class="w-20 h-8 bg-gray-800 rounded-lg shadow-md"></div>
-                                    <div class="w-20 h-8 bg-gray-800 rounded-lg shadow-md"></div>
-                                    <div class="w-20 h-8 bg-gray-800 rounded-lg shadow-md"></div>
-                                </div>
-                            </div>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="prod-sawdust">
+                            <div class="ratio-content bg-emerald-100"></div>
+                            <div class="drop-hint">Drop sawdust product image</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Shisha Charcoal -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="product-image bg-gradient-to-br from-red-100 to-pink-200 p-8 rounded-lg">
-                            <div class="coal-samples">
-                                <div class="w-20 h-20 bg-gray-900 rounded-lg mb-4 mx-auto shadow-lg"></div>
-                                <div class="grid grid-cols-3 gap-2 max-w-xs mx-auto">
-                                    <div class="w-12 h-12 bg-gray-800 rounded shadow-md"></div>
-                                    <div class="w-12 h-12 bg-gray-800 rounded shadow-md"></div>
-                                    <div class="w-12 h-12 bg-gray-800 rounded shadow-md"></div>
-                                    <div class="w-12 h-12 bg-gray-800 rounded shadow-md"></div>
-                                    <div class="w-12 h-12 bg-gray-800 rounded shadow-md"></div>
-                                    <div class="w-12 h-12 bg-gray-800 rounded shadow-md"></div>
-                                </div>
-                            </div>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="prod-shisha">
+                            <div class="ratio-content bg-rose-100"></div>
+                            <div class="drop-hint">Drop shisha product image</div>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-3xl font-bold text-gray-800 mb-4">Shisha Charcoal</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                            Specially designed charcoal cubes for shisha and hookah. Clean burning, odorless, and long-lasting for the perfect smoking experience.
-                        </p>
-                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">
-                            Learn More
-                        </a>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">Low-ash, low-smoke briquettes with consistent heat, designed specifically for shisha use.</p>
+                        <a href="#" class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition duration-300">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-red-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold mb-4">Ready to Order?</h2>
-            <p class="text-xl mb-8">Get premium quality charcoal products delivered worldwide</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" class="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-                    Contact Us
-                </a>
-                <a href="#" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition duration-300">
-                    Download Catalog
-                </a>
+    <!-- Featured Gallery / Shop Grid -->
+    <section id="brands" class="py-16 bg-[url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1712&auto=format&fit=crop')] bg-cover bg-center">
+        <div class="bg-black/60 py-12">
+            <div class="container mx-auto px-4">
+                <div class="text-center text-white mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold">Featured Branded & Custom Packaging</h2>
+                    <p class="text-white/80 mt-2">Showcase your brand on charcoal briquette pouches, boxes, and more.</p>
+                </div>
+                <div class="grid sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-1"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-2"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-3"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-4"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-5"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-6"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-7"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-8"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-9"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-10"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-11"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="brand-12"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop</div></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Company Info Section -->
-    <section class="py-20 bg-white">
+    <!-- Detailed Specifications -->
+    <section id="specs" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Detailed Specification Product</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6 shadow">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">Shisha Charcoal</h3>
+                        <span class="text-xs bg-red-600 text-white px-2 py-1 rounded">Popular</span>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-6 items-start">
+                        <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                            <li>Ash content ≤ 2%</li>
+                            <li>Fixed carbon ≥ 75%</li>
+                            <li>Moisture ≤ 6%</li>
+                            <li>Burn time ≥ 90 minutes</li>
+                        </ul>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="spec-shisha">
+                            <div class="ratio-content bg-white"></div>
+                            <div class="drop-hint">Drop image</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 shadow">
+                    <h3 class="text-xl font-bold mb-4">Hardwood Charcoal</h3>
+                    <div class="grid sm:grid-cols-2 gap-6 items-start">
+                        <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                            <li>Moisture ≤ 8%</li>
+                            <li>Fixed carbon ≥ 70%</li>
+                            <li>Ash content ≤ 5%</li>
+                            <li>Low smoke</li>
+                        </ul>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="spec-hardwood">
+                            <div class="ratio-content bg-white"></div>
+                            <div class="drop-hint">Drop image</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 shadow">
+                    <h3 class="text-xl font-bold mb-4">Sawdust Charcoal</h3>
+                    <div class="grid sm:grid-cols-2 gap-6 items-start">
+                        <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                            <li>Uniform briquette size</li>
+                            <li>Consistent heat</li>
+                            <li>Low ash</li>
+                            <li>Food-safe</li>
+                        </ul>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="spec-sawdust">
+                            <div class="ratio-content bg-white"></div>
+                            <div class="drop-hint">Drop image</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-6 shadow">
+                    <h3 class="text-xl font-bold mb-4">BBQ Charcoal</h3>
+                    <div class="grid sm:grid-cols-2 gap-6 items-start">
+                        <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                            <li>High heat output</li>
+                            <li>Long burn time</li>
+                            <li>Minimal smoke</li>
+                            <li>Low odor</li>
+                        </ul>
+                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="spec-bbq">
+                            <div class="ratio-content bg-white"></div>
+                            <div class="drop-hint">Drop image</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">All Product is Tested</h2>
+                <p class="text-gray-600">International laboratory certifications</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="image-frame ratio-3x4 droppable-image" data-drop-id="cert-1"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop certificate</div></div>
+                <div class="image-frame ratio-3x4 droppable-image" data-drop-id="cert-2"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop certificate</div></div>
+                <div class="image-frame ratio-3x4 droppable-image" data-drop-id="cert-3"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop certificate</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping & Export Banner -->
+    <section id="shipping" class="relative py-20">
+        <div class="image-frame ratio-21x9 droppable-image">
+            <div class="ratio-content bg-[url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center"></div>
+            <div class="drop-hint">Drop banner</div>
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="absolute inset-0 flex items-center justify-center text-center text-white px-4">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold">Factory and Supplier Indonesia</h2>
+                    <p class="mt-2 text-lg">Premium Shisha and BBQ Charcoal • Worldwide shipping</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Why DJAVACOAL INDONESIA</h2>
                 <div class="w-24 h-1 bg-red-600 mx-auto"></div>
             </div>
-            
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="text-center p-6">
                     <div class="w-16 h-16 bg-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -263,6 +379,53 @@
                     <h3 class="text-xl font-bold text-gray-800 mb-3">Sustainable Practices</h3>
                     <p class="text-gray-600">Committed to environmental responsibility through sustainable sourcing and production methods.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Production & Packaging Blocks -->
+    <section id="production" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-6">
+                <div class="image-frame ratio-16x9 droppable-image" data-drop-id="production-1"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop production photo</div></div>
+                <div class="image-frame ratio-16x9 droppable-image" data-drop-id="production-2"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop packaging photo</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Big Gallery Grid -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Gallery</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="image-frame ratio-4x5 droppable-image" data-drop-id="g1"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-1x1 droppable-image" data-drop-id="g2"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-16x9 droppable-image" data-drop-id="g3"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-3x4 droppable-image" data-drop-id="g4"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-1x1 droppable-image" data-drop-id="g5"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-4x3 droppable-image" data-drop-id="g6"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-16x9 droppable-image" data-drop-id="g7"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-3x4 droppable-image" data-drop-id="g8"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+                <div class="image-frame ratio-1x1 droppable-image" data-drop-id="g9"><div class="ratio-content bg-gray-200"></div><div class="drop-hint">Drop</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Row -->
+    <section id="partners" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-semibold text-gray-800">Global Shipping Partners</h3>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 items-center">
+                <div class="image-frame ratio-3x2 droppable-image" data-drop-id="partner-1"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop logo</div></div>
+                <div class="image-frame ratio-3x2 droppable-image" data-drop-id="partner-2"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop logo</div></div>
+                <div class="image-frame ratio-3x2 droppable-image" data-drop-id="partner-3"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop logo</div></div>
+                <div class="image-frame ratio-3x2 droppable-image" data-drop-id="partner-4"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop logo</div></div>
+                <div class="image-frame ratio-3x2 droppable-image" data-drop-id="partner-5"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop logo</div></div>
+                <div class="image-frame ratio-3x2 droppable-image" data-drop-id="partner-6"><div class="ratio-content bg-white"></div><div class="drop-hint">Drop logo</div></div>
             </div>
         </div>
     </section>
@@ -312,16 +475,16 @@
                     <div class="mt-8">
                         <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300">
+                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300" aria-label="Facebook">
                                 <i class="fab fa-facebook text-2xl"></i>
                             </a>
-                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300">
+                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300" aria-label="Instagram">
                                 <i class="fab fa-instagram text-2xl"></i>
                             </a>
-                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300">
+                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin text-2xl"></i>
                             </a>
-                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300">
+                            <a href="#" class="text-gray-300 hover:text-red-600 transition duration-300" aria-label="WhatsApp">
                                 <i class="fab fa-whatsapp text-2xl"></i>
                             </a>
                         </div>
@@ -374,7 +537,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 transition duration-300 opacity-0 invisible">
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-red-600 text-white p-3 rounded-full shadow-lg hover:bg-red-700 transition duration-300 opacity-0 invisible" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 

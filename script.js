@@ -319,6 +319,32 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.removeChild(cookieBanner);
         });
     }
+
+    // Drag & drop image swap for containers
+    const droppables = document.querySelectorAll('.droppable-image');
+    droppables.forEach(zone => {
+        ['dragenter','dragover'].forEach(evt => zone.addEventListener(evt, e => {
+            e.preventDefault();
+            e.stopPropagation();
+            zone.classList.add('dragover');
+        }));
+        ['dragleave','dragend','drop'].forEach(evt => zone.addEventListener(evt, e => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (evt !== 'drop') zone.classList.remove('dragover');
+        }));
+        zone.addEventListener('drop', async e => {
+            const file = e.dataTransfer?.files?.[0];
+            if (!file) return;
+            if (!file.type.startsWith('image/')) {
+                DjavaCoal?.showNotification?.('Please drop an image file', 'error');
+                return;
+            }
+            const url = URL.createObjectURL(file);
+            applyImageToZone(zone, url);
+            zone.classList.remove('dragover');
+        });
+    });
 });
 
 // Utility functions
@@ -353,3 +379,21 @@ window.DjavaCoal = {
     debounce: debounce,
     throttle: throttle
 };
+
+// Helper: set dropped image into the frame
+function applyImageToZone(zone, url){
+    // Prefer <img> child if exists; else set background on .ratio-content
+    const img = zone.querySelector('img');
+    if (img) {
+        img.src = url;
+        img.classList.add('object-cover');
+        img.classList.add('ratio-content');
+        return;
+    }
+    const content = zone.querySelector('.ratio-content');
+    if (content) {
+        content.style.backgroundImage = `url('${url}')`;
+        content.style.backgroundSize = 'cover';
+        content.style.backgroundPosition = 'center';
+    }
+}
