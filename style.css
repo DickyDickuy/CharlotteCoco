@@ -18,28 +18,28 @@ html, body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto,
     background-attachment: fixed;
 }
 
-/* Subtle sugar paper texture overlay for hero frames */
-.sugar-texture::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-    background-size: 6px 6px;
-}
-
-/* Leaf decorative corners */
+/* Oil-painted coconut leaf decorative corners - the ONLY good effect we keep */
 .leaf-corner {
     position: absolute;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 0.8;
     z-index: 0;
 }
-.leaf-top-left { top: -10px; left: -10px; transform: rotate(-10deg); background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="%230093cd" opacity="0.15" d="M5 70c30-10 50-40 95-45 10 0 20 5 23 15-30 10-55 40-100 45C7 87 0 79 5 70z"/></svg>'); }
-.leaf-top-right { top: -10px; right: -10px; transform: rotate(10deg); background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="%230093cd" opacity="0.15" d="M5 70c30-10 50-40 95-45 10 0 20 5 23 15-30 10-55 40-100 45C7 87 0 79 5 70z"/></svg>'); }
+.leaf-top-left { 
+    top: -20px; 
+    left: -20px; 
+    transform: rotate(-15deg); 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><path fill="%236b8e23" opacity="0.2" d="M10 80c40-15 70-50 120-55 15 0 25 8 20 20-40 15-70 50-125 55C15 105 5 95 10 80z"/><path fill="%230093cd" opacity="0.15" d="M15 85c35-12 60-45 110-50 12 0 20 6 18 15-35 12-60 45-115 50C18 102 10 95 15 85z"/></svg>'); 
+}
+.leaf-top-right { 
+    top: -20px; 
+    right: -20px; 
+    transform: rotate(15deg) scaleX(-1); 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><path fill="%236b8e23" opacity="0.2" d="M10 80c40-15 70-50 120-55 15 0 25 8 20 20-40 15-70 50-125 55C15 105 5 95 10 80z"/><path fill="%230093cd" opacity="0.15" d="M15 85c35-12 60-45 110-50 12 0 20 6 18 15-35 12-60 45-115 50C18 102 10 95 15 85z"/></svg>'); 
+}
 
 /* Ribbon label */
 .ribbon {
@@ -100,7 +100,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Custom animations */
+/* Simple animations - keeping it clean */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -112,21 +112,8 @@ html {
     }
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
 .fade-in-up {
     animation: fadeInUp 0.8s ease-out;
-}
-
-.float-animation {
-    animation: float 3s ease-in-out infinite;
 }
 
 /* Product showcase enhancements */

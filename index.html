@@ -46,13 +46,13 @@
     <!-- Hero Section (two-column image + note) -->
     <section id="home" class="pt-24 pb-10 bg-gray-50 relative overflow-hidden">
         <div class="container mx-auto px-4">
-            <!-- Decorative leaves -->
+            <!-- Decorative leaves - keeping only the good oil-painted effect -->
             <div class="leaf-corner leaf-top-left hidden md:block"></div>
             <div class="leaf-corner leaf-top-right hidden md:block"></div>
             <div class="grid md:grid-cols-3 gap-6 items-stretch">
                 <!-- Left hero image -->
                 <div class="md:col-span-2">
-                    <div class="image-frame ratio-16x9 sugar-texture" data-drop-id="hero-main" aria-label="Hero main image">
+                    <div class="image-frame ratio-16x9" data-drop-id="hero-main" aria-label="Hero main image">
                         <div class="ratio-content bg-gray-200"></div>
                         <!-- Ribbon overlay -->
                         <div class="ribbon" aria-hidden="true">LOCALLY PRODUCED</div>
@@ -62,7 +62,7 @@
                 </div>
                 <!-- Right sticky note image -->
                 <div class="flex md:block">
-                    <div class="image-frame ratio-3x4 w-full sugar-texture" data-drop-id="hero-note" aria-label="Hero side image">
+                    <div class="image-frame ratio-3x4 w-full" data-drop-id="hero-note" aria-label="Hero side image">
                         <div class="ratio-content bg-gray-200"></div>
                     </div>
                 </div>
@@ -214,64 +214,105 @@
     </section>
 
     <!-- Discover + Product Sections -->
-    <section id="products" class="py-16 bg-gray-50">
+    <section id="products" class="py-24 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
-                <p class="uppercase text-xs tracking-widest text-[#0093cd] font-semibold">Products</p>
-                <h2 class="text-4xl font-bold text-gray-800 mb-2">Discover Our Product</h2>
-                <div class="w-24 h-1 bg-[#0093cd] mx-auto"></div>
+            <div class="text-center mb-16">
+                <p class="uppercase text-sm tracking-widest text-[#0093cd] font-semibold mb-3">Premium Natural Sweeteners</p>
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Discover Our Products</h2>
+                <div class="w-32 h-1 bg-[#0093cd] mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Experience the authentic taste of Indonesia with our premium coconut-based sugar products, 
+                    sustainably sourced and traditionally processed to preserve natural nutrients and flavor.
+                </p>
             </div>
 
-            <!-- Category Tiles -->
-            <div class="flex justify-center mb-16">
-                <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
-                    <div class="bg-white rounded-lg shadow">
-                        <div class="image-frame ratio-1x1" data-drop-id="cat-shisha">
+            <!-- Enhanced Category Tiles -->
+            <div class="flex justify-center mb-20">
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl w-full">
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                        <div class="image-frame ratio-4x3" data-drop-id="cat-palm">
                             <div class="ratio-content bg-gray-200"></div>
                         </div>
-                        <div class="p-4 text-center">
-                            <h3 class="font-semibold">Palm Sugar</h3>
+                        <div class="p-8 text-center">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Palm Sugar</h3>
+                            <p class="text-gray-600 mb-4">Rich caramel notes from coconut palm sap</p>
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg shadow">
-                        <div class="image-frame ratio-1x1" data-drop-id="cat-bbq">
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                        <div class="image-frame ratio-4x3" data-drop-id="cat-coconut">
                             <div class="ratio-content bg-gray-200"></div>
                         </div>
-                        <div class="p-4 text-center">
-                            <h3 class="font-semibold">BBQ Charcoal</h3>
+                        <div class="p-8 text-center">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Coconut Sugar</h3>
+                            <p class="text-gray-600 mb-4">Pure sweetness with natural coconut essence</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Product rows -->
-            <div class="space-y-16">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="order-2 md:order-1">
-                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Palm Sugar</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">Premium organic coconut palm sugar with rich caramel notes and natural sweetness. Made from pure coconut palm sap, our sugar retains essential nutrients and has a lower glycemic index than regular sugar. Perfect for baking, beverages, and as a healthy sugar alternative.</p>
-                        <a href="#" class="bg-[#8e531d] text-white px-6 py-3 rounded hover:bg-[#774418] transition duration-300">Learn More</a>
+            <!-- Enhanced Product rows -->
+            <div class="space-y-24">
+                <!-- Palm Sugar Product -->
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1 space-y-6">
+                        <h3 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Coconut Palm Sugar</h3>
+                        <p class="text-gray-600 text-xl leading-relaxed mb-8">
+                            Premium organic coconut palm sugar with rich caramel notes and natural sweetness. 
+                            Made from pure coconut palm sap, our sugar retains essential nutrients and has a lower 
+                            glycemic index than regular sugar. Perfect for baking, beverages, and as a healthy sugar alternative.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-[#8e531d]">GI 35</div>
+                                <div class="text-sm text-gray-600">Low Glycemic Index</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-[#8e531d]">100%</div>
+                                <div class="text-sm text-gray-600">Natural & Organic</div>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center bg-[#8e531d] text-white px-8 py-4 rounded-lg hover:bg-[#774418] transition duration-300 text-lg font-semibold">
+                            Learn More 
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                     <div class="order-1 md:order-2">
-                        <div class="image-frame ratio-4x3" data-drop-id="prod-coconut">
+                        <div class="image-frame ratio-4x3 rounded-2xl overflow-hidden shadow-2xl" data-drop-id="prod-palm">
                             <div class="ratio-content bg-gray-200"></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Coconut Sugar Product -->
+                <div class="grid md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <div class="image-frame ratio-4x3" data-drop-id="prod-hardwood">
+                        <div class="image-frame ratio-4x3 rounded-2xl overflow-hidden shadow-2xl" data-drop-id="prod-coconut">
                             <div class="ratio-content bg-gray-200"></div>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-4">Hardwood Charcoal</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed mb-6">Dense hardwood-based charcoal with long burn time and minimal smoke, ideal for grilling and industrial heat sources.</p>
-                        <a href="#" class="bg-[#8e531d] text-white px-6 py-3 rounded hover:bg-[#774418] transition duration-300">Learn More</a>
+                    <div class="space-y-6">
+                        <h3 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Granulated Coconut Sugar</h3>
+                        <p class="text-gray-600 text-xl leading-relaxed mb-8">
+                            Fine granulated coconut sugar perfect for everyday use. With its subtle coconut flavor and 
+                            natural sweetness, it's an ideal replacement for refined sugar in all your recipes. 
+                            Rich in minerals and antioxidants, offering both taste and nutritional benefits.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-[#0093cd]">2-3%</div>
+                                <div class="text-sm text-gray-600">Moisture Content</div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-2xl font-bold text-[#0093cd]">2 Years</div>
+                                <div class="text-sm text-gray-600">Shelf Life</div>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center bg-[#0093cd] text-white px-8 py-4 rounded-lg hover:bg-[#007bb3] transition duration-300 text-lg font-semibold">
+                            Learn More 
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -280,13 +321,15 @@
     <section id="specs" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Detailed Specification Product</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Detailed Product Specifications</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Our coconut sugar products meet international quality standards with comprehensive testing and certification.
+                </p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-50 rounded-xl p-6 shadow">
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg">
                     <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-xl font-bold">Palm Sugar</h3>
-                        <span class="text-xs bg-[#0093cd] text-white px-2 py-1 rounded">Popular</span>
+                        <h3 class="text-xl font-bold">Coconut Palm Sugar</h3>
                     </div>
                     <div class="grid sm:grid-cols-2 gap-6 items-start">
                         <ul class="space-y-2 text-gray-700 list-disc list-inside">
@@ -299,21 +342,27 @@
                             <li>No artificial additives</li>
                             <li>Low Glycemic Index (GI: 35)</li>
                         </ul>
-                        <div class="image-frame ratio-4x3" data-drop-id="spec-shisha">
+                        <div class="image-frame ratio-4x3" data-drop-id="spec-palm">
                             <div class="ratio-content bg-gray-200"></div>
                         </div>
                     </div>
                 </div>
-                <div class="bg-gray-50 rounded-xl p-6 shadow">
-                    <h3 class="text-xl font-bold mb-4">Hardwood Charcoal</h3>
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">Granulated Coconut Sugar</h3>
+                    </div>
                     <div class="grid sm:grid-cols-2 gap-6 items-start">
                         <ul class="space-y-2 text-gray-700 list-disc list-inside">
-                            <li>Moisture ≤ 8%</li>
-                            <li>Fixed carbon ≥ 70%</li>
-                            <li>Ash content ≤ 5%</li>
-                            <li>Low smoke</li>
+                            <li>Moisture ≤ 3%</li>
+                            <li>pH Level: 6.0-7.0</li>
+                            <li>Color: Golden Brown</li>
+                            <li>Particle size: 0.5-2mm</li>
+                            <li>Shelf Life: 24 months</li>
+                            <li>Rich in minerals</li>
+                            <li>Natural coconut flavor</li>
+                            <li>Kosher & Halal certified</li>
                         </ul>
-                        <div class="image-frame ratio-4x3" data-drop-id="spec-hardwood">
+                        <div class="image-frame ratio-4x3" data-drop-id="spec-coconut">
                             <div class="ratio-content bg-gray-200"></div>
                         </div>
                     </div>
@@ -326,14 +375,22 @@
     <section id="certifications" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">All Product is Tested</h2>
-                <p class="text-gray-600">Charlotte Essence is committed to maintaining the highest food safety and quality standards for all of our coconut-based
-                products. We ensure every stage of production follows strict international guidelines, supported by our certifications.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">All Products Are Tested & Certified</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                    Charlotte Essence is committed to maintaining the highest food safety and quality standards for all of our coconut-based
+                    products. We ensure every stage of production follows strict international guidelines, supported by our certifications.
+                </p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="image-frame ratio-3x4" data-drop-id="cert-1"><div class="ratio-content bg-gray-200"></div></div>
-                <div class="image-frame ratio-3x4" data-drop-id="cert-2"><div class="ratio-content bg-gray-200"></div></div>
-                <div class="image-frame ratio-3x4" data-drop-id="cert-3"><div class="ratio-content bg-gray-200"></div></div>
+                <div class="image-frame ratio-3x4" data-drop-id="cert-1">
+                    <div class="ratio-content bg-white"></div>
+                </div>
+                <div class="image-frame ratio-3x4" data-drop-id="cert-2">
+                    <div class="ratio-content bg-white"></div>
+                </div>
+                <div class="image-frame ratio-3x4" data-drop-id="cert-3">
+                    <div class="ratio-content bg-white"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -346,7 +403,7 @@
             <div class="absolute inset-0 flex items-center justify-center text-center text-white px-4">
                 <div>
                     <h2 class="text-3xl md:text-4xl font-extrabold">Factory and Supplier Indonesia</h2>
-                    <p class="mt-2 text-lg">Premium Shisha and BBQ Charcoal • Worldwide shipping</p>
+                    <p class="mt-2 text-lg">The best coconut and palm sugar in SEA• Worldwide shipping</p>
                 </div>
             </div>
         </div>
