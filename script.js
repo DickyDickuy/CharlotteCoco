@@ -320,31 +320,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Drag & drop image swap for containers
-    const droppables = document.querySelectorAll('.droppable-image');
-    droppables.forEach(zone => {
-        ['dragenter','dragover'].forEach(evt => zone.addEventListener(evt, e => {
-            e.preventDefault();
-            e.stopPropagation();
-            zone.classList.add('dragover');
-        }));
-        ['dragleave','dragend','drop'].forEach(evt => zone.addEventListener(evt, e => {
-            e.preventDefault();
-            e.stopPropagation();
-            if (evt !== 'drop') zone.classList.remove('dragover');
-        }));
-        zone.addEventListener('drop', async e => {
-            const file = e.dataTransfer?.files?.[0];
-            if (!file) return;
-            if (!file.type.startsWith('image/')) {
-                DjavaCoal?.showNotification?.('Please drop an image file', 'error');
-                return;
-            }
-            const url = URL.createObjectURL(file);
-            applyImageToZone(zone, url);
-            zone.classList.remove('dragover');
-        });
-    });
+    // Note: Drag & drop for images has been removed per requirements.
+    // You can programmatically assign images later by selecting containers via [data-drop-id].
+    // See the template below near the end of this file.
 });
 
 // Utility functions
@@ -380,20 +358,48 @@ window.DjavaCoal = {
     throttle: throttle
 };
 
-// Helper: set dropped image into the frame
-function applyImageToZone(zone, url){
-    // Prefer <img> child if exists; else set background on .ratio-content
-    const img = zone.querySelector('img');
-    if (img) {
-        img.src = url;
-        img.classList.add('object-cover');
-        img.classList.add('ratio-content');
-        return;
-    }
-    const content = zone.querySelector('.ratio-content');
-    if (content) {
-        content.style.backgroundImage = `url('${url}')`;
-        content.style.backgroundSize = 'cover';
-        content.style.backgroundPosition = 'center';
-    }
-}
+// Optional template: assign images by data-drop-id (disabled by default)
+// Uncomment and fill your paths to set images programmatically.
+// (function assignInitialImages() {
+//     const images = {
+//         'hero-main': 'images/hero-main.jpg',
+//         'hero-note': 'images/hero-note.jpg',
+//         'offer-box': 'images/offer-box.jpg',
+//         'offer-coal-1': 'images/offer-coal-1.jpg',
+//         'offer-coal-2': 'images/offer-coal-2.jpg',
+//         'cat-shisha': 'images/cat-shisha.jpg',
+//         'cat-bbq': 'images/cat-bbq.jpg',
+//         'prod-coconut': 'images/prod-coconut.jpg',
+//         'prod-hardwood': 'images/prod-hardwood.jpg',
+//         'spec-shisha': 'images/spec-shisha.jpg',
+//         'spec-hardwood': 'images/spec-hardwood.jpg',
+//         'cert-1': 'images/cert-1.jpg',
+//         'cert-2': 'images/cert-2.jpg',
+//         'cert-3': 'images/cert-3.jpg',
+//         'production-1': 'images/production-1.jpg',
+//         'production-2': 'images/production-2.jpg',
+//         'g1': 'images/g1.jpg', 'g2': 'images/g2.jpg', 'g3': 'images/g3.jpg',
+//         'g4': 'images/g4.jpg', 'g5': 'images/g5.jpg', 'g6': 'images/g6.jpg',
+//         'g7': 'images/g7.jpg', 'g8': 'images/g8.jpg', 'g9': 'images/g9.jpg',
+//         'partner-1': 'images/partner-1.png', 'partner-2': 'images/partner-2.png',
+//         'partner-3': 'images/partner-3.png', 'partner-4': 'images/partner-4.png',
+//         'partner-5': 'images/partner-5.png', 'partner-6': 'images/partner-6.png'
+//     };
+//     Object.entries(images).forEach(([id, src]) => {
+//         const zone = document.querySelector(`[data-drop-id="${id}"]`);
+//         if (!zone || !src) return;
+//         const img = zone.querySelector('img');
+//         if (img) {
+//             img.src = src;
+//             img.classList.add('object-cover');
+//             img.classList.add('ratio-content');
+//         } else {
+//             const content = zone.querySelector('.ratio-content');
+//             if (content) {
+//                 content.style.backgroundImage = `url('${src}')`;
+//                 content.style.backgroundSize = 'cover';
+//                 content.style.backgroundPosition = 'center';
+//             }
+//         }
+//     });
+// })();
