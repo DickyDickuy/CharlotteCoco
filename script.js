@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const notification = document.createElement('div');
         notification.className = `fixed top-20 right-4 p-4 rounded-lg z-50 transition-all duration-300 ${
             type === 'success' ? 'bg-green-500' : 
-            type === 'error' ? 'bg-red-500' : 'bg-blue-500'
+            type === 'error' ? 'bg-[#8e531d]' : 'bg-[#0093cd]'
         } text-white`;
         notification.textContent = message;
         
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cookieBanner.innerHTML = `
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
                 <p class="mb-4 md:mb-0">We use cookies to enhance your experience on our website.</p>
-                <button id="accept-cookies" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                <button id="accept-cookies" class="bg-[#8e531d] text-white px-4 py-2 rounded hover:bg-[#774418]">
                     Accept
                 </button>
             </div>

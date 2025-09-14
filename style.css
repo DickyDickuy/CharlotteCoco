@@ -1,5 +1,14 @@
 /* Custom CSS for enhanced styling */
 
+/* Brand base */
+:root {
+    --brand-brown: #8e531d;
+    --brand-brown-dark: #774418;
+    --brand-blue: #0093cd;
+}
+
+html, body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
 /* Hero Section Background */
 .hero-section {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
@@ -7,6 +16,57 @@
     background-size: 200px 200px;
     background-position: center;
     background-attachment: fixed;
+}
+
+/* Subtle sugar paper texture overlay for hero frames */
+.sugar-texture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 6px 6px;
+}
+
+/* Leaf decorative corners */
+.leaf-corner {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: 0;
+}
+.leaf-top-left { top: -10px; left: -10px; transform: rotate(-10deg); background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="%230093cd" opacity="0.15" d="M5 70c30-10 50-40 95-45 10 0 20 5 23 15-30 10-55 40-100 45C7 87 0 79 5 70z"/></svg>'); }
+.leaf-top-right { top: -10px; right: -10px; transform: rotate(10deg); background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="%230093cd" opacity="0.15" d="M5 70c30-10 50-40 95-45 10 0 20 5 23 15-30 10-55 40-100 45C7 87 0 79 5 70z"/></svg>'); }
+
+/* Ribbon label */
+.ribbon {
+    position: absolute;
+    top: 14px;
+    left: -12px;
+    background: var(--brand-blue);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* Pill badge */
+.pill-badge {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    background: var(--brand-brown);
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 /* Aspect-ratio image frames for easy swap */
@@ -141,13 +201,13 @@ section {
 
 /* Custom button styles */
 .btn-primary {
-    background: linear-gradient(135deg, #dc2626, #b91c1c);
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    background: linear-gradient(135deg, #8e531d, #774418);
+    box-shadow: 0 4px 15px rgba(142, 83, 29, 0.3);
     transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    box-shadow: 0 6px 20px rgba(142, 83, 29, 0.4);
     transform: translateY(-2px);
 }
 
@@ -235,7 +295,7 @@ nav {
 /* Focus states for keyboard navigation */
 a:focus,
 button:focus {
-    outline: 2px solid #dc2626;
+    outline: 2px solid #0093cd;
     outline-offset: 2px;
 }
 
@@ -249,12 +309,12 @@ button:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #dc2626;
+    background: #0093cd;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #b91c1c;
+    background: #067bb0;
 }
 
 /* Print styles */
@@ -264,7 +324,8 @@ button:focus {
         color: black;
     }
     
-    .bg-red-600 {
+    /* Make primary buttons readable on print */
+    .bg-\[\#8e531d\] {
         background: white !important;
         color: black !important;
         border: 1px solid black;
