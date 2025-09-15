@@ -336,14 +336,6 @@ button:focus {
     pointer-events: none;
 }
 
-@keyframes slideRight {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 100% 0;
-    }
-}
 
 .palm-leaf {
     position: absolute;
@@ -353,5 +345,4 @@ button:focus {
     background-repeat: repeat-x;
     background-size: contain;
     opacity: 1;
-    animation: slideRight 20s linear infinite; /* Added animation */
 }
