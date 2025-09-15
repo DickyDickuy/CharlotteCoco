@@ -322,3 +322,36 @@ button:focus {
         display: none;
     }
 }
+
+/* Section divider with palm leaf overlay */
+.section-divider {
+    position: relative;
+    height: 100px;
+    margin: -50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes slideRight {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+.palm-leaf {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-image: url('images/palm-leaf-overlay.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    opacity: 1;
+    animation: slideRight 20s linear infinite; /* Added animation */
+}
