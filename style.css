@@ -322,3 +322,15 @@ button:focus {
         display: none;
     }
 }
+
+/* WhatsApp Popup */
+#whatsapp-popup {
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: scale(0);
+}
+
+#whatsapp-popup.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
