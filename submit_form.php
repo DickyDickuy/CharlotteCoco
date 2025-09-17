@@ -17,9 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: contact.html?status=error");
         exit;
     }
-
-    // Initialize Resend with your API key
-    $apiKey = getenv('RESEND_API_KEY'); // It's best to use an environment variable for your API key
+    $apiKey = getenv('RESEND_API_KEY'); 
     if (!$apiKey) {
         die("RESEND_API_KEY not set.");
     }
@@ -35,14 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         $result = $resend->emails->send([
-            'from' => 'onboarding@resend.dev', // Replace with your verified sender domain
-            'to' => 'your-email@example.com', // Replace with your email address
+            'from' => 'onboarding@resend.dev', 
+            'to' => 'your-email@example.com', 
             'subject' => $subject,
             'text' => $email_content,
         ]);
 
         // Redirect to a success page
-        header("Location: contact.html?status=success");
+        header("Location: thank_you.html");
         exit;
 
     } catch (\Exception $e) {
