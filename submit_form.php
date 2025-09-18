@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $result = $resend->emails->send([
             'from' => 'onboarding@resend.dev', 
-            'to' => 'your-email@example.com', 
+            'to' => 'lagimales248@gmail.com', 
             'subject' => $subject,
             'text' => $email_content,
         ]);
