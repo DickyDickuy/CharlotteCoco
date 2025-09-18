@@ -1,7 +1,11 @@
 <?php
-use Resend\Resend;
+use Dotenv\Dotenv;
 
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
+
+// Load environment variables from .env file
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -17,24 +21,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: contact.html?status=error");
         exit;
     }
-    $apiKey = getenv('RESEND_API_KEY'); 
+
+    // Initialize Resend with your API key from .env
+    $apiKey = $_ENV['RESEND_API_KEY'];
     if (!$apiKey) {
-        die("RESEND_API_KEY not set.");
+        die("RESEND_API_KEY not set in .env file.");
     }
-    $resend = Resend::client($apiKey);
+    $resend = \Resend::client($apiKey);
 
     // Prepare email content
     $subject = "New Contact Form Submission from $name";
-    $email_content = "Name: $name\n";
-    $email_content .= "Email: $email\n";
-    $email_content .= "Product of Interest: $product\n";
-    $email_content .= "Address: $address\n\n";
-    $email_content .= "Message:\n$message\n";
+    $email_content = "Name: $name
+";
+    $email_content .= "Email: $email
+";
+    $email_content .= "Product of Interest: $product
+";
+    $email_content .= "Address: $address
+
+";
+    $email_content .= "Message:
+$message
+";
 
     try {
         $result = $resend->emails->send([
             'from' => 'onboarding@resend.dev', 
-            'to' => 'lagimales248@gmail.com', 
+            'to' => 'andhikahutama9@gmail.com', 
             'subject' => $subject,
             'text' => $email_content,
         ]);
@@ -54,4 +67,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: contact.html");
     exit;
 }
-?>
