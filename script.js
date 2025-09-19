@@ -55,14 +55,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Back to top button
     const backToTopBtn = document.getElementById('back-to-top');
+    const whatsappPopup = document.getElementById('whatsapp-popup');
     
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 300) {
             backToTopBtn.classList.remove('opacity-0', 'invisible');
             backToTopBtn.classList.add('opacity-100', 'visible');
+            
+            whatsappPopup.classList.add('visible');
+            whatsappPopup.classList.remove('opacity-0', 'invisible');
+
         } else {
             backToTopBtn.classList.add('opacity-0', 'invisible');
             backToTopBtn.classList.remove('opacity-100', 'visible');
+
+            whatsappPopup.classList.remove('visible');
+            whatsappPopup.classList.add('opacity-0', 'invisible');
         }
     });
     
@@ -300,25 +308,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Cookie consent (simple implementation)
-    if (!localStorage.getItem('cookieConsent')) {
-        const cookieBanner = document.createElement('div');
-        cookieBanner.className = 'fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50';
-        cookieBanner.innerHTML = `
-            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
-                <p class="mb-4 md:mb-0">We use cookies to enhance your experience on our website.</p>
-                <button id="accept-cookies" class="bg-[#8e531d] text-white px-4 py-2 rounded hover:bg-[#774418]">
-                    Accept
-                </button>
-            </div>
-        `;
+    // if (!localStorage.getItem('cookieConsent')) {
+    //     const cookieBanner = document.createElement('div');
+    //     cookieBanner.className = 'fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50';
+    //     cookieBanner.innerHTML = `
+    //         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+    //             <p class="mb-4 md:mb-0">We use cookies to enhance your experience on our website.</p>
+    //             <button id="accept-cookies" class="bg-[#8e531d] text-white px-4 py-2 rounded hover:bg-[#774418]">
+    //                 Accept
+    //             </button>
+    //         </div>
+    //     `;
         
-        document.body.appendChild(cookieBanner);
+    //     document.body.appendChild(cookieBanner);
         
-        document.getElementById('accept-cookies').addEventListener('click', function() {
-            localStorage.setItem('cookieConsent', 'true');
-            document.body.removeChild(cookieBanner);
-        });
-    }
+    //     document.getElementById('accept-cookies').addEventListener('click', function() {
+    //         localStorage.setItem('cookieConsent', 'true');
+    //         document.body.removeChild(cookieBanner);
+    //     });
+    // }
 
     // Note: Drag & drop for images has been removed per requirements.
     // You can programmatically assign images later by selecting containers via [data-drop-id].
