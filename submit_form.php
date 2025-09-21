@@ -8,15 +8,21 @@ $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
+    // Sanitize and retrieve form data
+    $inquiry_type = strip_tags(trim($_POST["inquiry_type"]));
     $name = strip_tags(trim($_POST["name"]));
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $product = strip_tags(trim($_POST["product"]));
-    $address = strip_tags(trim($_POST["address"]));
+    $phone = strip_tags(trim($_POST["phone"]));
+    $company = strip_tags(trim($_POST["company"]));
+    $job_title = strip_tags(trim($_POST["job_title"]));
+    $company_address = strip_tags(trim($_POST["company_address"]));
+    $city = strip_tags(trim($_POST["city"]));
+    $state = strip_tags(trim($_POST["state"]));
+    $country = strip_tags(trim($_POST["country"]));
     $message = strip_tags(trim($_POST["message"]));
 
-    // Validate form data
-    if (empty($name) || empty($email) || empty($product) || empty($address) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // Basic validation
+    if (empty($inquiry_type) || empty($name) || empty($email) || empty($company) || empty($job_title) || empty($company_address) || empty($city) || empty($state) || empty($country) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Handle error - redirect back to form with an error message
         header("Location: contact.html?status=error");
         exit;
@@ -30,19 +36,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resend = \Resend::client($apiKey);
 
     // Prepare email content
-    $subject = "New Contact Form Submission from $name";
-    $email_content = "Name: $name
-";
-    $email_content .= "Email: $email
-";
-    $email_content .= "Product of Interest: $product
-";
-    $email_content .= "Address: $address
-
-";
-    $email_content .= "Message:
-$message
-";
+    $subject = "New Inquiry: $inquiry_type from $name at $company";
+    $email_content = "You have received a new inquiry.\n\n";
+    $email_content .= "Inquiry Type: $inquiry_type\n";
+    $email_content .= "Name: $name\n";
+    $email_content .= "Company Email: $email\n";
+    $email_content .= "Phone Number: $phone\n";
+    $email_content .= "Company: $company\n";
+    $email_content .= "Job Title: $job_title\n";
+    $email_content .= "Company Address: $company_address\n";
+    $email_content .= "City: $city\n";
+    $email_content .= "State/Province: $state\n";
+    $email_content .= "Country: $country\n\n";
+    $email_content .= "Message:\n$message\n";
 
     try {
         $result = $resend->emails->send([
