@@ -13,32 +13,9 @@ html, body { font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto,
 .hero-section {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                 url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMmEyYTJhIi8+CjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjMiIGZpbGw9IiM0YTRhNGEiLz4KPGNpcmNsZSBjeD0iODAiIGN5PSI4MCIgcj0iMiIgZmlsbD0iIzNhM2EzYSIvPgo8Y2lyY2xlIGN4PSI2MCIgY3k9IjMwIiByPSIyLjUiIGZpbGw9IiM1YTVhNWEiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSI3MCIgcj0iNCIgZmlsbD0iIzNhM2EzYSIvPgo8L3N2Zz4K');
-    background-size: 200px 200px;
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
-}
-
-/* Oil-painted coconut leaf decorative corners - the ONLY good effect we keep */
-.leaf-corner {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.8;
-    z-index: 0;
-}
-.leaf-top-left { 
-    top: -20px; 
-    left: -20px; 
-    transform: rotate(-15deg); 
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><path fill="%236b8e23" opacity="0.2" d="M10 80c40-15 70-50 120-55 15 0 25 8 20 20-40 15-70 50-125 55C15 105 5 95 10 80z"/><path fill="%230093cd" opacity="0.15" d="M15 85c35-12 60-45 110-50 12 0 20 6 18 15-35 12-60 45-115 50C18 102 10 95 15 85z"/></svg>'); 
-}
-.leaf-top-right { 
-    top: -20px; 
-    right: -20px; 
-    transform: rotate(15deg) scaleX(-1); 
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150"><path fill="%236b8e23" opacity="0.2" d="M10 80c40-15 70-50 120-55 15 0 25 8 20 20-40 15-70 50-125 55C15 105 5 95 10 80z"/><path fill="%230093cd" opacity="0.15" d="M15 85c35-12 60-45 110-50 12 0 20 6 18 15-35 12-60 45-115 50C18 102 10 95 15 85z"/></svg>'); 
 }
 
 /* Ribbon label */
