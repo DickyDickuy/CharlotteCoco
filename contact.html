@@ -44,47 +44,108 @@
     </header>
 
     <main class="pt-24 pb-16">
-        <section class="py-16 bg-white">
+        <section class="py-16" style="background: url('images/palm-leaf-overlay.png') no-repeat center center; background-size: cover;">
             <div class="container mx-auto px-4">
-                <div class="max-w-2xl mx-auto text-center">
-                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Contact Us</h1>
-                    <p class="text-gray-600 leading-relaxed">
-                        We'd love to hear from you. Please fill out the form below to get in touch with our team.
-                    </p>
-                </div>
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    <!-- Left Side: Address and Map -->
+                    <div class="bg-white/50 backdrop-blur-sm p-8 rounded-lg">
+                        <h1 class="text-4xl font-bold text-gray-800 mb-6">Contact Us</h1>
+                        
+                        <div class="mb-8">
+                            <h3 class="font-bold text-gray-700 mb-2">ADDRESS</h3>
+                            <p class="text-gray-600">
+                                PT Coco Sugar Indonesia<br>
+                                Jalan Gerilya Timur 289B<br>
+                                Purwokerto, Central Java 53147<br>
+                                Indonesia
+                            </p>
+                        </div>
 
-                <div class="max-w-3xl mx-auto mt-12 bg-white p-8 rounded-lg shadow-lg">
-                    <form action="submit_form.php" method="POST">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="mb-8">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.273333333333!2d109.246944!3d-7.435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655f1f29953613%3A0x4026a38a7a454b0!2sPurwokerto%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1695300000000!5m2!1sen!2sid" 
+                                width="100%" 
+                                height="250" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-gray-700 mb-3">OUR SOCIAL MEDIA</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-600 hover:text-[#8e531d] text-2xl"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="text-gray-600 hover:text-[#8e531d] text-2xl"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="text-gray-600 hover:text-[#8e531d] text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Form -->
+                    <div class="bg-white/50 backdrop-blur-sm p-8 rounded-lg">
+                        <form action="submit_form.php" method="POST">
                             <div class="mb-4">
-                                <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0093cd]">
+                                <label for="inquiry_type" class="block text-gray-700 font-semibold mb-2">INQUIRY FOR *</label>
+                                <select id="inquiry_type" name="inquiry_type" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                                    <option value="" disabled selected>Select Inquiry Type *</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Support">Support</option>
+                                </select>
                             </div>
                             <div class="mb-4">
-                                <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                                <input type="email" id="email" name="email" placeholder="your.email@example.com" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0093cd]">
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">NAME *</label>
+                                <input type="text" id="name" name="name" placeholder="Name *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
                             </div>
-                        </div>
-                        <div class="mb-4">
-                            <label for="product" class="block text-gray-700 font-semibold mb-2">Product of Interest</label>
-                            <select id="product" name="product" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0093cd]">
-                                <option value="" disabled selected>Select a product</option>
-                                <option value="Palm Sugar">Palm Sugar</option>
-                                <option value="Granulated Coconut Sugar">Granulated Coconut Sugar</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label for="address" class="block text-gray-700 font-semibold mb-2">Address</label>
-                            <textarea id="address" name="address" rows="3" placeholder="Your full address" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0093cd]"></textarea>
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Your message..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0093cd]"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="w-full md:w-auto bg-[#8e531d] text-white font-bold py-3 px-8 rounded-md hover:bg-[#774418] transition duration-300">Send Message</button>
-                        </div>
-                    </form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 font-semibold mb-2">COMPANY EMAIL ADDRESS *</label>
+                                    <input type="email" id="email" name="email" placeholder="Your Company Email Address *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="phone" class="block text-gray-700 font-semibold mb-2">PHONE NUMBER</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]">
+                                </div>
+                            </div>
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="mb-4">
+                                    <label for="company" class="block text-gray-700 font-semibold mb-2">COMPANY *</label>
+                                    <input type="text" id="company" name="company" placeholder="Company Name *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="job_title" class="block text-gray-700 font-semibold mb-2">JOB TITLE *</label>
+                                    <input type="text" id="job_title" name="job_title" placeholder="Job Title *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="company_address" class="block text-gray-700 font-semibold mb-2">COMPANY ADDRESS *</label>
+                                <input type="text" id="company_address" name="company_address" placeholder="Company Address *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="mb-4">
+                                    <label for="city" class="block text-gray-700 font-semibold mb-2">CITY *</label>
+                                    <input type="text" id="city" name="city" placeholder="City *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="state" class="block text-gray-700 font-semibold mb-2">STATE/PROVINCE *</label>
+                                    <input type="text" id="state" name="state" placeholder="State/Province *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="country" class="block text-gray-700 font-semibold mb-2">COUNTRY *</label>
+                                    <input type="text" id="country" name="country" placeholder="Country *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-semibold mb-2">MESSAGE *</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Message *" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#8e531d]" required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="w-full bg-[#8e531d] text-white font-bold py-3 px-8 rounded-md hover:bg-[#774418] transition duration-300">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
