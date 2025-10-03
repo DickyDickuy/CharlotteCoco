@@ -177,30 +177,55 @@
     <!-- Offer -->
     <section id="offer" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-10 items-center">
-                <div class="space-y-6">
-                    <p class="uppercase text-xs tracking-widest text-[#0093cd] font-semibold">Our Offer</p>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">Premium Quality Coconut Sugar Products</h2>
-                    <p class="text-gray-600 text-lg">We provide high-quality coconut sugar sourced directly from Indonesian farmers. Available in various forms including granulated, block, and liquid, with custom packaging options for retail and bulk orders.</p>
-                    <div class="flex gap-3">
-                        <a href="#contact" class="bg-[#8e531d] hover:bg-[#774418] text-white px-5 py-3 rounded-md font-semibold">Get Quote</a>
-                        <a href="#specs" class="border border-gray-300 text-gray-700 px-5 py-3 rounded-md hover:bg-gray-50">See Specs</a>
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <p class="uppercase text-sm tracking-widest text-[#0093cd] font-semibold mb-3">Premium Natural Sweeteners</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Discover Our Products</h2>
+                <div class="w-32 h-1 bg-[#0093cd] mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Experience the authentic taste of Indonesia with our premium coconut-based sugar products,
+                    sustainably sourced and traditionally processed to preserve natural nutrients and flavor.
+                </p>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <div>
+                        <p class="uppercase text-xs tracking-widest text-[#0093cd] font-semibold mb-4">Our Offer</p>
+                        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-6">Premium Quality Coconut Sugar Products</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            We provide high-quality coconut sugar sourced directly from Indonesian farmers. Available in various forms including granulated, block, and liquid, with custom packaging options for retail and bulk orders.
+                        </p>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-[#8e531d] hover:bg-[#774418] text-white px-8 py-4 rounded-lg font-semibold text-center transition duration-300">
+                            Get Quote
+                        </a>
+                        <a href="#specs" class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:bg-gray-50 font-semibold text-center transition duration-300">
+                            See Specifications
+                        </a>
                     </div>
                 </div>
-                <div class="grid sm:grid-cols-2 gap-6">
-                    <div class="image-frame ratio-1x1 droppable-image" data-drop-id="offer-box">
-                        <img data-src="images/Palm Sugar Pouch.png" alt="Palm Sugar Category" class="ratio-content object-cover" loading="lazy">
-                        <div class="drop-hint">Drop packaged product image</div>
+
+                <!-- Right Images Grid -->
+                <div class="grid grid-cols-2 gap-6">
+                    <!-- Large Product Image -->
+                    <div class="col-span-2">
+                        <div class="image-frame ratio-4x3 rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/Palm Sugar Pouch.png" alt="Palm Sugar Pouch" class="ratio-content object-cover">
+                        </div>
                     </div>
-                    <div class="space-y-6">
-                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="offer-sugar-1">
-                            <img data-src="images/Coconut Sugar.png" alt="Palm Sugar Category" class="ratio-content object-cover" loading="lazy">
-                            <div class="drop-hint">Drop sugar sample image</div>
-                        </div>
-                        <div class="image-frame ratio-4x3 droppable-image" data-drop-id="offer-sugar-2">
-                            <img data-src="images/Palm Sugar.png" alt="Palm Sugar Category" class="ratio-content object-cover" loading="lazy">
-                            <div class="drop-hint">Drop sugar process image</div>
-                        </div>
+                    
+                    <!-- Two Smaller Images -->
+                    <div class="image-frame ratio-1x1 rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/Coconut Sugar.png" alt="Coconut Sugar" class="ratio-content object-cover">
+                    </div>
+                    <div class="image-frame ratio-1x1 rounded-xl overflow-hidden shadow-lg">
+                        <img src="images/Palm Sugar.png" alt="Palm Sugar" class="ratio-content object-cover">
                     </div>
                 </div>
             </div>
@@ -210,39 +235,8 @@
     <!-- Discover + Product Sections -->
     <section id="products" class="py-24 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <p class="uppercase text-sm tracking-widest text-[#0093cd] font-semibold mb-3">Premium Natural Sweeteners</p>
-                <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Discover Our Products</h2>
-                <div class="w-32 h-1 bg-[#0093cd] mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Experience the authentic taste of Indonesia with our premium coconut-based sugar products, 
-                    sustainably sourced and traditionally processed to preserve natural nutrients and flavor.
-                </p>
-            </div>
 
-            <!-- Enhanced Category Tiles -->
-            <div class="flex justify-center mb-20">
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl w-full">
-                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-                        <div class="image-frame ratio-4x3" data-drop-id="cat-palm">
-                            <img data-src="images/Palm Sugar.png" alt="Palm Sugar Category" class="ratio-content object-cover" loading="lazy">
-                        </div>
-                        <div class="p-8 text-center">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Palm Sugar</h3>
-                            <p class="text-gray-600 mb-4">Rich caramel notes from coconut palm sap</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-                        <div class="image-frame ratio-4x3" data-drop-id="cat-coconut">
-                            <img data-src="images/Coconut Sugar.png" alt="Palm Sugar Category" class="ratio-content object-cover" loading="lazy">
-                        </div>
-                        <div class="p-8 text-center">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Coconut Sugar</h3>
-                            <p class="text-gray-600 mb-4">Pure sweetness with natural coconut essence</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 
             <!-- Enhanced Product rows -->
             <div class="space-y-24">
@@ -395,20 +389,6 @@
         </div>
     </section>
 
-    <!-- Production & Packaging Blocks -->
-    <section id="production" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-6">
-                <div class="image-frame ratio-16x9" data-drop-id="production-1">
-                    <img src="images/FotoGudang1.png" alt="Production Process" class="ratio-content object-cover">
-                </div>
-                <div class="image-frame ratio-16x9" data-drop-id="production-2">
-                    <img src="images/FotoGudang2.png" alt="Production Facility" class="ratio-content object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- New Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 text-center">
@@ -443,15 +423,12 @@
                         <li><a href="#" class="hover:text-white">About Us</a></li>
                         <li><a href="#" class="hover:text-white">Quality Standards</a></li>
                         <li><a href="#" class="hover:text-white">Certifications</a></li>
-                        <li><a href="#" class="hover:text-white">Sustainability</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4">Support</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="contact.html" class="hover:text-white">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-white">Export Documentation</a></li>
-                        <li><a href="#" class="hover:text-white">Shipping Info</a></li>
                         <li><a href="#" class="hover:text-white">FAQ</a></li>
                     </ul>
                 </div>
