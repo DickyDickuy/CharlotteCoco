@@ -291,19 +291,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add loading states to buttons
-    document.querySelectorAll('button, .btn').forEach(btn => {
+    // Add loading states to buttons (excluding carousel buttons)
+    document.querySelectorAll('button:not(.carousel-btn), .btn:not(.carousel-btn)').forEach(btn => {
         btn.addEventListener('click', function() {
-            if (!this.classList.contains('loading')) {
-                this.classList.add('loading');
-                const originalText = this.textContent;
-                this.textContent = 'Loading...';
-                
-                setTimeout(() => {
-                    this.classList.remove('loading');
-                    this.textContent = originalText;
-                }, 2000);
+            // Skip loading for carousel buttons and already loading buttons
+            if (this.classList.contains('loading') || 
+                this.classList.contains('carousel-btn') ||
+                this.id === 'prev-btn' || 
+                this.id === 'next-btn') {
+                return;
             }
+            
+            this.classList.add('loading');
+            const originalText = this.textContent;
+            this.textContent = 'Loading...';
+            
+            setTimeout(() => {
+                this.classList.remove('loading');
+                this.textContent = originalText;
+            }, 1000); // Reduced from 2000ms to 1000ms
         });
     });
 
@@ -331,6 +337,74 @@ document.addEventListener('DOMContentLoaded', function() {
     // Note: Drag & drop for images has been removed per requirements.
     // You can programmatically assign images later by selecting containers via [data-drop-id].
     // See the template below near the end of this file.
+
+    // Carousel functionality
+    const track = document.getElementById('carousel-track');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    let currentSlide = 0;
+    const totalSlides = 4;
+    let autoPlayInterval;
+    let isTransitioning = false;
+
+    function updateCarousel() {
+        if (isTransitioning) return;
+        
+        isTransitioning = true;
+        const translateX = -currentSlide * 100;
+        track.style.transform = `translateX(${translateX}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Reset transitioning flag after animation completes
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 500);
+    }
+
+    function nextSlide() {
+        if (isTransitioning) return;
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        if (isTransitioning) return;
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    function startAutoPlay() {
+        stopAutoPlay(); // Clear any existing interval
+        autoPlayInterval = setInterval(nextSlide, 4000);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = null;
+        }
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Dot navigation
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            updateCarousel();
+        });
+    });
+
+    // Auto-play (optional)
+    setInterval(nextSlide, 4000); // Change slide every 4 seconds
 });
 
 // Utility functions

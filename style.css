@@ -311,3 +311,38 @@ button:focus {
     visibility: visible;
     transform: scale(1);
 }
+
+/* Carousel Styles */
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+}
+
+.carousel-btn {
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-dot {
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background-color: #0093cd;
+}
+
+.carousel-dot:hover {
+    background-color: #0093cd;
+    opacity: 0.7;
+}
